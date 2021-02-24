@@ -6,7 +6,8 @@ COLORS
 $white: #fff;
 $orange: #f9ab00;
 $dark: rgba(255, 255, 255, 0);
-
+$red: #ef4035;
+$hover-red: #f33501;
 
 /************************
 GLOBALS
@@ -40,6 +41,84 @@ NAVBAR
     }
     &:hover {
       border-top: 0.1875rem solid $orange;
+    }
+  }
+}
+
+/************************
+HEADER
+************************/
+
+.header {
+  &-wrapper {
+    position: relative;
+    background: url('./images/header-background.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    h1,
+    h3 {
+      color: $orange;
+    }
+    h1 {
+      text-transform: uppercase;
+    }
+  }
+  &-typed-text {
+    font-size: 2rem;
+    color: $white;
+  }
+  &-main-offer {
+    border: 1px solid $red;
+    text-transform: uppercase;
+    border-radius: 0;
+    padding: 0.625rem 0.75rem 0.75rem 0.75rem;
+    color: $white;
+    margin: 2rem;
+    &:hover {
+      text-decoration: none;
+      background-color: $hover-red;
+      color: $white;
+      transition: 0.2s ease-in-out;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    &-brand {
+      width: 7rem;
+    }
+    
+  }
+
+  .header {
+    &-particles {
+      display: none;
+    }
+    &-info {
+      h1 {
+        font-size: 1.7rem !important;
+      }
+      h3 {
+        font-size: 1.5rem !important;
+      }
+    }
+    &-typed-text {
+      font-size: 1.3rem;
     }
   }
 }

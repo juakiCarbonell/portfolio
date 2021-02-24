@@ -3,7 +3,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 
-import logo from '../logo.png';
+import logo from '../images/logo.png';
 
 const Navigation = () => {
   return (

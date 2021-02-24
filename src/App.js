@@ -1,11 +1,12 @@
+import './App.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Navigation from './components/Navigation';
 
 function App() {
   return (
-    <div >
-      <h2>Portfolio project</h2>
+    <div>
+      <Navigation />
     </div>
   );
 }

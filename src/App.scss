@@ -5,9 +5,10 @@ COLORS
 ************************/
 $white: #fff;
 $orange: #f9ab00;
-$dark: rgba(255, 255, 255, 0);
+$dark: rgb(52, 58, 64);
 $red: #ef4035;
 $hover-red: #f33501;
+$light-grey: #f4f4f4;
 
 /************************
 GLOBALS
@@ -115,6 +116,54 @@ ABOUT
   &-heading {
     color: $orange;
     text-transform: uppercase;
+  }
+}
+/************************
+SERVICES
+************************/
+.services {
+  text-align: center;
+  padding-bottom: 2rem;
+  background: $light-grey;
+  h1 {
+    color: $dark;
+    text-transform: uppercase;
+  }
+  .circle {
+    position: relative;
+    margin: 0.375rem auto;
+    background: $orange;
+    border-radius: 50%;
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+  .icon {
+    font-size: 1.4rem;
+    color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .box {
+    height: 16rem;
+    border-bottom: 5px solid $orange;
+    padding: 0.625rem;
+    margin-bottom: 1.875rem;
+    background: $white;
+    &:hover {
+      background: $orange;
+      border-bottom: 5px solid $dark;
+      .icon {
+        color: $dark;
+      }
+      .circle {
+        background: $white;
+      }
+      p {
+        color: $white;
+      }
+    }
   }
 }
 

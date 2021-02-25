@@ -13,7 +13,7 @@ $hover-red: #f33501;
 GLOBALS
 ************************/
 body {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif !important;
 }
 
 /************************
@@ -97,12 +97,46 @@ HEADER
   }
 }
 
+/************************
+ABOUT
+************************/
+.about {
+  &-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-photo {
+      width: 16rem;
+      padding: 0.3rem;
+      border: 1px solid $orange;
+    }
+  }
+
+  &-heading {
+    color: $orange;
+    text-transform: uppercase;
+  }
+}
+
+/************************
+MEDIA QUERIES
+************************/
+
+@media (max-width: 468px) {
+  .about {
+    &-image-photo {
+      width: 10rem;
+      display: block;
+      margin: auto;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     &-brand {
       width: 7rem;
     }
-    
   }
 
   .header {

@@ -25,6 +25,9 @@ const Navigation = () => {
             <Nav.Link href='#about' className='navbar-link'>
               About
             </Nav.Link>
+            <Nav.Link href='#experience' className='navbar-link'>
+              Experience
+            </Nav.Link>
             <Nav.Link href='#projects' className='navbar-link'>
               Projects
             </Nav.Link>

@@ -11,7 +11,7 @@ const Services = () => {
       <Container>
         <h1 className='py-5'>My services</h1>
         <Row>
-          <Col md={3} sm={6}>
+          <Col lg={3} md={6} sm={6}>
             <div className='box'>
               <div className='circle'>
                 <FontAwesomeIcon className="icon" icon={faDesktop} size='2x' />
@@ -23,7 +23,7 @@ const Services = () => {
               </p>
             </div>
           </Col>
-          <Col md={3} sm={6}>
+          <Col lg={3} md={6} sm={6}>
             <div className='box'>
               <div className='circle'>
                 <FontAwesomeIcon className="icon" icon={faFileCode} size='2x' />
@@ -35,19 +35,19 @@ const Services = () => {
               </p>
             </div>
           </Col>
-          <Col md={3} sm={6}>
+          <Col lg={3} md={6} sm={6}>
             <div className='box'>
               <div className='circle'>
                 <FontAwesomeIcon className="icon" icon={faFacebookF} size='2x' />
               </div>
-              <h3>Facebbok Ads SMM</h3>
+              <h3>Facebbok Ads</h3>
               <p>
                 It is a long established fact that a reader will be distracted
                 by the readable content of a page when looking at its layout.
               </p>
             </div>
           </Col>
-          <Col md={3} sm={6}>
+          <Col lg={3} md={6} sm={6}>
             <div className='box'>
               <div className='circle'>
                 <FontAwesomeIcon className="icon" icon={faGoogle} size='2x' />

@@ -10,7 +10,8 @@ $red: #ef4035;
 $hover-red: #f33501;
 $light-grey: #f4f4f4;
 $grey: #ccd1d9;
-$dar-grey: #666666;
+$dark-grey: #666666;
+$black: #000000;
 
 /************************
 GLOBALS
@@ -153,6 +154,7 @@ SERVICES
     padding: 0.625rem;
     margin-bottom: 1.875rem;
     background: $white;
+    transition: 0.3s ease-in-out;
     &:hover {
       background: $orange;
       border-bottom: 5px solid $dark;
@@ -212,7 +214,7 @@ EXPERIENCE
   .timeline-content {
     width: 95%;
     padding: 0 0.9375rem;
-    color: $dar-grey;
+    color: $dark-grey;
     direction: ltr;
 
     h3 {
@@ -229,6 +231,87 @@ EXPERIENCE
     background: $orange;
     margin-top: 0.625rem;
     z-index: 3;
+  }
+}
+
+/************************
+PROJECTS
+************************/
+.overflow {
+  position: absolute;
+  opacity: 0;
+  background: $black;
+  width: 15rem;
+  height: 8rem;
+  top: 0;
+  border: 1px solid $red;
+  cursor: pointer;
+}
+.projects {
+  background: $light-grey;
+  padding: 3rem 0;
+  &-box {
+    &-image {
+      position: relative;
+      margin: 1rem;
+
+      &-img {
+        width: 15rem;
+        border: 1px solid $orange;
+        padding: 0 0.5rem;
+      }
+      &-icon {
+        position: absolute;
+        opacity: 0;
+        margin-left: -8rem;
+        margin-top: 3.6rem;
+        color: $orange;
+        font-size: 1.5rem;
+      }
+      &:hover {
+        .overflow {
+          opacity: 60%;
+          transition: 0.3s ease-in-out;
+        }
+        .projects-box-image-icon {
+          opacity: 70%;
+          transition: 0.3s ease-in-out;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &-modal {
+    .modal-dialog {
+      max-width: 50% !important;
+    }
+    .modal-body {
+      width: 90%;
+      margin: auto;
+      padding: 0;
+    }
+    .modal-header {
+      width: 100%;
+      padding-left: 5%;
+      // padding-right: 10%;
+    }
+
+    &-hyper-link {
+      cursor: pointer;
+      color: $orange;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      &:hover {
+        color: $red;
+      }
+    }
+    &-img {
+      // width: 80%;
+      width: 100%;
+      // padding: 0 0.5rem;
+      display: block;
+      margin: auto;
+    }
   }
 }
 
@@ -285,6 +368,14 @@ MEDIA QUERIES
       }
       &-left {
         direction: ltr;
+      }
+    }
+  }
+  .projects {
+    &-modal {
+      .modal-dialog {
+        max-width: 90% !important;
+        margin: auto;
       }
     }
   }

@@ -281,6 +281,38 @@ PROJECTS
       }
     }
   }
+  &-modal {
+    .modal-dialog {
+      max-width: 50% !important;
+    }
+    .modal-body {
+      width: 90%;
+      margin: auto;
+      padding: 0;
+    }
+    .modal-header {
+      width: 100%;
+      padding-left: 5%;
+      // padding-right: 10%;
+    }
+
+    &-hyper-link {
+      cursor: pointer;
+      color: $orange;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      &:hover {
+        color: $red;
+      }
+    }
+    &-img {
+      // width: 80%;
+      width: 100%;
+      // padding: 0 0.5rem;
+      display: block;
+      margin: auto;
+    }
+  }
 }
 
 /************************
@@ -336,6 +368,14 @@ MEDIA QUERIES
       }
       &-left {
         direction: ltr;
+      }
+    }
+  }
+  .projects {
+    &-modal {
+      .modal-dialog {
+        max-width: 90% !important;
+        margin: auto;
       }
     }
   }

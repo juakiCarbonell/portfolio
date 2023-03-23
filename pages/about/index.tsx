@@ -1,9 +1,38 @@
 import CoverImage from '@/components/CoverImage'
+import { PageWrapper } from '@/components/PageWrapper'
+import { motion, Variants } from 'framer-motion'
 
-export default function About (): JSX.Element {
+const cardVariantsRight: Variants = {
+  offscreen: {
+    x: 10,
+    opacity: 0,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+  },
+}
+const cardVariantsLeft: Variants = {
+  offscreen: {
+    x: -10,
+    opacity: 0,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+  },
+}
+
+export default function About() {
   return (
-    <main>
-        <div className='flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center'>
+    <PageWrapper>
+      <motion.section
+        initial={{ x: 10, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.4 }}
+        className='py-2'
+      >
+        <div className='flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-5 md:py-24 items-center'>
           <div className='md:w-6/12 flex-shrink-0 relative '>
             <CoverImage
               title='about me profile'
@@ -16,11 +45,22 @@ export default function About (): JSX.Element {
                 About me
               </h2>
               <p className='my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industrys standard dummy
+                text ever since the 1500s
               </p>
             </div>
           </div>
         </div>
+      </motion.section>
+      <motion.section
+        initial='offscreen'
+        whileInView='onscreen'
+        viewport={{ once: true, amount: 0.2 }}
+        variants={cardVariantsLeft}
+        transition={{ duration: 0.4 }}
+        className='py-2'
+      >
         <div className='flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center'>
           <div className='md:w-6/12 flex-shrink-0 relative '>
             <CoverImage
@@ -34,11 +74,22 @@ export default function About (): JSX.Element {
                 Experience
               </h2>
               <p className='my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industrys standard dummy
+                text ever since the 1500s
               </p>
             </div>
           </div>
         </div>
+      </motion.section>
+      <motion.section
+        initial='offscreen'
+        whileInView='onscreen'
+        viewport={{ once: true, amount: 0.2 }}
+        variants={cardVariantsRight}
+        transition={{ duration: 0.4 }}
+        className='py-2'
+      >
         <div className='flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center'>
           <div className='md:w-6/12 flex-shrink-0 relative '>
             <CoverImage
@@ -52,11 +103,14 @@ export default function About (): JSX.Element {
                 Kind of projects
               </h2>
               <p className='my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industrys standard dummy
+                text ever since the 1500s
               </p>
             </div>
           </div>
         </div>
-    </main>
+      </motion.section>
+    </PageWrapper>
   )
 }

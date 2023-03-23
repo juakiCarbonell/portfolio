@@ -2,8 +2,26 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import CoverImage from '@/components/CoverImage'
 import Link from 'next/link'
+import EmblaCarousel from '@/components/Carrousel'
+import { EmblaOptionsType } from 'embla-carousel-react'
+import { motion, Variants } from 'framer-motion'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const OPTIONS: EmblaOptionsType = {}
+const SLIDE_COUNT = 3
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
+
+const cardVariants: Variants = {
+  offscreen: {
+    x: 10,
+    opacity: 0,
+  },
+  onscreen: {
+    x: 0,
+    opacity: 1,
+  },
+}
 
 export default function Home() {
   return (
@@ -15,53 +33,77 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main>
-        <CoverImage
-          title='Main Project'
-          image='https://res.cloudinary.com/dhbrsb9qd/image/upload/v1678448794/large_home_background_3c5303585a.jpg'
-        />
-        <section className='flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center'>
-          <div className='md:w-4/12 flex-shrink-0 relative '>
-            <CoverImage
-              title='profile'
-              image='https://res.cloudinary.com/dhbrsb9qd/image/upload/v1678449040/thumbnail_profile_8e0511d7b8.jpg'
-            />
-          </div>
-          <div className='md:w-8/12 mt-16 md:mt-0 md:ml-12 lg:ml-16 md:order-last'>
-            <div className='g:py-8 text-center md:text-left'>
-              <h2 className='mb-8 text-4xl md:text-5xl font-bold tracking-tighter leading-tight'>
-                About me
-              </h2>
-              <p className='my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy
-                text ever since the 1500s
-              </p>
-              <span className='text-left'>
-                <Link href='/about'>Read More</Link>
-              </span>
+        <motion.section
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4 }}
+        >
+          <CoverImage
+            title='Main Project'
+            image='https://res.cloudinary.com/dhbrsb9qd/image/upload/v1678448794/large_home_background_3c5303585a.jpg'
+          />
+        </motion.section>
+
+        <motion.section
+          initial={{ x: 10, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.4 }}
+          className='py-2'
+        >
+          <div className='flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center'>
+            <div className='md:w-4/12 flex-shrink-0 relative w-2/6'>
+              <CoverImage
+                title='profile'
+                image='https://res.cloudinary.com/dhbrsb9qd/image/upload/v1678449040/thumbnail_profile_8e0511d7b8.jpg'
+              />
+            </div>
+            <div className='md:w-8/12 mt-16 md:mt-0 md:ml-12 lg:ml-16 md:order-last'>
+              <div className='g:py-8 text-center md:text-left'>
+                <h2 className='mb-8 text-4xl md:text-5xl font-bold tracking-tighter leading-tight'>
+                  About me
+                </h2>
+                <p className='my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200'>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industrys
+                  standard dummy text ever since the 1500s
+                </p>
+                <span className='text-left'>
+                  <Link href='/about'>Read More</Link>
+                </span>
+              </div>
             </div>
           </div>
-        </section>
-        <section className='flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center'>
-          <div className='md:w-4/12 mt-16 md:mt-0 md:mr-12 lg:mr-16 md:order-firs'>
-            <div className='g:py-8 text-center md:text-left'>
-              <h2 className='mb-8 text-4xl md:text-5xl font-bold tracking-tighter leading-tight'>
-                Projects
-              </h2>
-              <p className='my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200'>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industrys standard dummy
-                text ever since the 1500s
-              </p>
-              <span className='text-left'>
-                <Link href='/projects'>Read More</Link>
-              </span>
+        </motion.section>
+
+        <motion.section
+          initial='offscreen'
+          whileInView='onscreen'
+          viewport={{ once: true, amount: 0.2 }}
+          variants={cardVariants}
+          transition={{ duration: 0.4 }}
+          className='py-2'
+        >
+          <div className='flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24 items-center'>
+            <div className='md:w-4/12 mt-16 md:mt-0 md:mr-12 lg:mr-16 md:order-firs'>
+              <div className='g:py-8 text-center md:text-left'>
+                <h2 className='mb-8 text-4xl md:text-5xl font-bold tracking-tighter leading-tight'>
+                  Projects
+                </h2>
+                <p className='my-5 max-w-[600px] text-neutral-800 dark:text-neutral-200'>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industrys
+                  standard dummy text ever since the 1500s
+                </p>
+                <span className='text-left'>
+                  <Link href='/projects'>Read More</Link>
+                </span>
+              </div>
+            </div>
+            <div className='md:w-8/12 flex-shrink-0 relative mt-10 md:mt-0'>
+              <EmblaCarousel slides={SLIDES} options={OPTIONS} />
             </div>
           </div>
-          {/* <div className='md:w-8/12 flex-shrink-0 relative '>
-            <EmblaCarousel slides={SLIDES} options={OPTIONS} />
-          </div> */}
-        </section>
+        </motion.section>
       </main>
     </>
   )

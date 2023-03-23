@@ -1,4 +1,6 @@
+import { PageWrapper } from '@/components/PageWrapper'
 import { ProjectCard } from '@/components/ProjectCard'
+import { motion } from 'framer-motion'
 
 const projects = [
   {
@@ -21,12 +23,45 @@ const projects = [
   },
 ]
 
+const variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3
+    }
+  }
+}
+const images = {
+  hidden: { x: 15, opacity: 0 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1
+    }
+  }
+}
+
 export default function Projects(): JSX.Element {
   return (
-    <main className='py-2 flex flex-col md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-6'>
-      {projects.map((project) => {
-        return <ProjectCard key={project.id} image={project.image} title={project.title} />
-      })}
-    </main>
+    <PageWrapper>
+      <motion.section
+        variants={variants}
+        initial='hidden'
+        animate='show'
+        className='py-2 flex flex-col md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-6'
+      >
+        {projects.map((project) => {
+          return (
+            <ProjectCard
+              key={project.id}
+              image={project.image}
+              title={project.title}
+            />
+          )
+        })}
+      </motion.section>
+    </PageWrapper>
   )
 }

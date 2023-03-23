@@ -21,7 +21,7 @@ export const Navbar = (): JSX.Element => {
       <nav className='flex container mx-auto justify-between h-18 items-center flex-col md:flex-row py-2'>
 
           <h2 className='text-3xl md:text-4xl font-bold tracking-tighter leading-tight'>
-            Lorea Oya
+            Lorem Ipsum
           </h2>
           <ul className='flex gap-8'>
             {links.map((item) => {

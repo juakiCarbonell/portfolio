@@ -4,12 +4,12 @@ export const Footer = () => {
       <div className='flex flex-col'>
         <div>
           <h2 className='text-3xl md:text-4xl font-bold tracking-tighter leading-tight'>
-            Lorea Oya
+            Loren Ipsum
           </h2>
         </div>
         <div>
           <div>
-            <p className='text-base'>lorea@gmail.com</p>
+            <p className='text-base'>lorem@gmail.com</p>
           </div>
           <div>
             <p>+34 666 66 66</p>

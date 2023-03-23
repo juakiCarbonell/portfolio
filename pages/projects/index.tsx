@@ -1,6 +1,12 @@
 import { PageWrapper } from '@/components/PageWrapper'
 import { ProjectCard } from '@/components/ProjectCard'
 import { motion } from 'framer-motion'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '@/firebase';
+
+
+
+const projectsIntance = collection(db, 'projects');
 
 const projects = [
   {
@@ -32,18 +38,8 @@ const variants = {
     }
   }
 }
-const images = {
-  hidden: { x: 15, opacity: 0 },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1
-    }
-  }
-}
 
-export default function Projects(): JSX.Element {
+export default function Projects() {
   return (
     <PageWrapper>
       <motion.section

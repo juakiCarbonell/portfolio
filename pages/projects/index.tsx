@@ -2,44 +2,32 @@ import { PageWrapper } from '@/components/PageWrapper'
 import { ProjectCard } from '@/components/ProjectCard'
 import { motion } from 'framer-motion'
 import { collection, getDocs } from 'firebase/firestore'
-import { db } from '@/firebase';
+import { db } from '@/firebase'
 
+const projectsIntance = collection(db, 'projects')
 
-
-const projectsIntance = collection(db, 'projects');
-
-const projects = [
-  {
-    id: 1,
-    title: 'School in Berlin',
-    image:
-      'https://res.cloudinary.com/dhbrsb9qd/image/upload/v1677843789/slide1_daeeb3c071.jpg',
-  },
-  {
-    id: 2,
-    title: 'Residence in Temlin',
-    image:
-      'https://res.cloudinary.com/dhbrsb9qd/image/upload/v1677843790/slide3_6d9aa807ac.jpg',
-  },
-  {
-    id: 3,
-    title: 'Clinic in Magdeburg',
-    image:
-      'https://res.cloudinary.com/dhbrsb9qd/image/upload/v1677843789/small_slide2_8c43c32e59.jpg',
-  },
-]
 
 const variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3
-    }
-  }
+      staggerChildren: 0.3,
+    },
+  },
 }
 
-export default function Projects() {
+interface Projects {
+  id: string,
+  title: string,
+  image: string,
+}
+
+interface ProjectsProps {
+  projectsCol: Projects[]
+}
+
+export default function Projects({ projectsCol} : ProjectsProps) {
   return (
     <PageWrapper>
       <motion.section
@@ -48,7 +36,7 @@ export default function Projects() {
         animate='show'
         className='py-2 flex flex-col md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-6'
       >
-        {projects.map((project) => {
+        {projectsCol.map((project) => {
           return (
             <ProjectCard
               key={project.id}
@@ -60,4 +48,18 @@ export default function Projects() {
       </motion.section>
     </PageWrapper>
   )
+}
+
+export async function getStaticProps() {
+  const res = await getDocs(projectsIntance)
+  const projectsCol = res.docs.map((doc) => {
+    return {
+      ...doc.data(),
+      id: doc.id}
+  })
+  return {
+    props: {
+      projectsCol,
+    },
+  }
 }

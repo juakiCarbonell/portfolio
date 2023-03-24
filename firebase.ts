@@ -2,13 +2,13 @@ import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_APIKEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DB_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.API_ID
+  apiKey: "AIzaSyAdswmppTWM6Bx1KwGkAVhu0Y-FpEK0uFQ",
+  authDomain: "portfolio-e5ea8.firebaseapp.com",
+  databaseURL: "https://portfolio-e5ea8-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "portfolio-e5ea8",
+  storageBucket: "portfolio-e5ea8.appspot.com",
+  messagingSenderId: "778709355027",
+  appId: "1:778709355027:web:1d30b80bf73da2c68a0de6"
 };
 
 export const app = initializeApp(firebaseConfig)
